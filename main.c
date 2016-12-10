@@ -89,10 +89,14 @@ void movimientoJugador(char** m) {
         printf("Donde quieres colocar una X <1..9>: ");
         scanf("%d",casilla);
         if(casilla<1 || casilla > 9){
-            printf("ERROR !!");
+            printf("ERROR !! Casilla elegida erronea");
+        }
+        if(isalpha(m[casilla/3][casilla%3])){
+            printf("ERROR !! La casilla elegida ya esta ocupada.");
         }
         casilla--;
     }while(casilla<1 || casilla > 9 || isalpha(m[casilla/3][casilla%3]));
+    m[casilla/3][casilla%3]='X';
 
 }
 
